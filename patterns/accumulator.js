@@ -22,20 +22,19 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
-  let product = 1;
-  for (let i = 1; i <= n; i++) {
-    product *= i;
-  }
-
   if (typeof n !== "number") return NaN;
 
   if (n < 0) return undefined;
 
   if (n === 0) return 1;
 
+  let product = 1;
+  for (let i = 1; i <= n; i++) {
+    product *= i;
+  }
+  // Had some struggles with this one, AI suggested the * operator.
+  // Had to look up why this works.
   return product;
-
-  // TODO
 }
 
 /**
@@ -45,7 +44,17 @@ export function factorial(n) {
  * @returns `[]` if n is 0 or negative
  */
 export function buildNArray(n) {
-  // TODO
+  if (typeof n !== "number") return null;
+
+  if (n <= 0) return [];
+
+  let array = [];
+  for (let i = 1; i <= n; i++) {
+    array.push(i);
+    // Using push to add integers into the array at the end.
+    // Is this the most effective method?
+  }
+  return array;
 }
 
 /**
@@ -53,7 +62,17 @@ export function buildNArray(n) {
  * @returns {string} the longest string in `strings`
  */
 export function getLongestString(strings) {
-  // TODO
+  let longestString = "";
+  for (let string of strings) {
+    if (string.length > longestString.length) {
+      longestString = string;
+    }
+  }
+
+  return longestString;
+
+  // These can get a little confusing for me, espically when using
+  // only strings and not numbers.
 }
 
 /**
@@ -61,7 +80,15 @@ export function getLongestString(strings) {
  * @returns {number} the number of students present
  */
 export function countPresent(attendance) {
-  // TODO
+  let headCount = 0;
+
+  for (let present of attendance) {
+    if (present) {
+      headCount += 1;
+    }
+  }
+
+  return headCount;
 }
 
 /**
