@@ -22,6 +22,19 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
+  let product = 1;
+  for (let i = 1; i <= n; i++) {
+    product *= i;
+  }
+
+  if (typeof n !== "number") return NaN;
+
+  if (n < 0) return undefined;
+
+  if (n === 0) return 1;
+
+  return product;
+
   // TODO
 }
 
