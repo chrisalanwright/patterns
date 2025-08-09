@@ -102,5 +102,22 @@ export function countPresent(attendance) {
  * @returns `null` if `dna` is not a string
  */
 export function complementDNA(dna) {
-  // TODO
+  if (typeof dna !== "string") return null;
+
+  let complement = "";
+  for (let strand of dna) {
+    if (strand === "A") {
+      complement += "T";
+    } else if (strand === "T") {
+      complement += "A";
+    } else if (strand === "C") {
+      complement += "G";
+    } else if (strand === "G") {
+      complement += "C";
+    }
+  }
+  return complement;
+  // Copilot helped with this one, they were also suggesting a switch statement. but I wasn't sure how that works.
 }
+
+// I feel I need to practice this section more, it was definitely harder than the guard.js file. When it comes to strings and not numbers I feel lost.
